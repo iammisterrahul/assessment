@@ -15,12 +15,9 @@ export async function GET() {
 
 export async function PUT(request: Request) {
   const data = await request.json();
-
-  // Here you would typically update the user in your database
-  // For this example, we will just return the updated user data
   const updatedUser: TUserType = {
     ...dummyUser,
-    ...data,
+    ...data, // Merge the existing user data with the new data
   };
 
   return NextResponse.json(updatedUser);
